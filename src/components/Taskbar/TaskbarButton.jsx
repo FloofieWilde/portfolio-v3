@@ -7,7 +7,7 @@ const TaskbarButton = () => {
   return <StartButton>
       <span className='overlayStart'>&nbsp;</span>
       <img alt="W98 icon" src={winLogo} />
-      <span style={{position:"relative", top:"px"}}>Démarrer</span>
+      <span style={{position:"relative", top:"1px"}}>Démarrer</span>
     </StartButton>
 }
 
@@ -32,7 +32,7 @@ const StartButton = styled.button`
   border-left: 1px white solid;
   border-bottom: 1px black solid;
   border-right: 1px black solid;
-  box-shadow : 1px 1px #393b3d, 1px 0 #000,0 1px #000,1px 1px #000;
+  box-shadow : 1px 1px ${Colors.greyShadow}, 1px 0 #000,0 1px #000,1px 1px #000;
 
   > .overlayStart {
      visibility: hidden;
