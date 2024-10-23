@@ -28,7 +28,6 @@ const TaskbarContainer = styled.div`
   padding: 2px;
   
   align-items: center;
-  /* background-color: #c2c6ca; */
 `
 
 
