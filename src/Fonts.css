@@ -1,0 +1,15 @@
+
+@font-face {
+    font-family: MS98;
+    src: url(./assets/fonts/MSW98UI-Regular.ttf);
+}
+@font-face {
+    font-family: MS98;
+    font-weight: bold;
+    src: url(./assets/fonts/MSW98UI-Bold.ttf);
+}
+  
+@font-face {
+    font-family: PX;
+    src: url(./assets/fonts/px_sans_nouveaux.ttf);
+}
