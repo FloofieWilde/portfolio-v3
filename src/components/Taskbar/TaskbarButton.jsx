@@ -26,6 +26,7 @@ const StartButton = styled.button`
   align-items: center;
   gap: 2px;
   background-color: ${Colors.greyTB};
+  cursor: default;
   
   border-top: 1px white solid;
   border-left: 1px white solid;

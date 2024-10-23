@@ -1,0 +1,25 @@
+.tooltip {
+    background-color: rgb(247, 247, 217);
+    color: black;
+    padding: 0 3px;
+    border-radius: 0;
+    border: black solid 1px;
+    font-size: 11px;
+    transform: translateY(5px) !important;
+    animation: 0.15s normal;
+    animation-name: openTooltip;
+}
+
+@keyframes openTooltip {
+    0% {
+        height:0px;
+    }
+    100% {
+        height: 20px;
+    }
+    
+}
+
+.tooltip:before, .tooltip:after {
+    border: none !important;
+}

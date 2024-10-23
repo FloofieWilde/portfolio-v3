@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import TaskbarButton from '@components/Taskbar/TaskbarButton'
+import TooltipComp from '@components/Shared/TooltipComp'
 
 const TaskbarMain = () => {
   return (
     <TaskbarContainer>
       <div>
-        <TaskbarButton/>
+        <TooltipComp text={"Cliquez ici pour commencer."}>
+          <><TaskbarButton/></>
+          </TooltipComp>
       </div>
     </TaskbarContainer>
   )
