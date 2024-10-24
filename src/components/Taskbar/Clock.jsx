@@ -1,5 +1,4 @@
 import TooltipComp from '@components/Shared/TooltipComp'
-import { format } from 'prettier'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -18,9 +17,16 @@ const Clock = () => {
         return time < 10 ? `0${time}` : time
     }
 
+    const date = Time.toLocaleDateString(t('locale'), {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    })
+
     return (
     <>
-        <TooltipComp text={t('test')}>
+        <TooltipComp text={date}>
             <span style={{fontSize: "9px", fontFamily: "PX", cursor: "default"}}>
                 {formatTime(Time.getHours())}
                 &thinsp;:&thinsp;

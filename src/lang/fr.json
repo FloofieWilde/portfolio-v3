@@ -1,3 +1,10 @@
 {
-    "test": "Ceci est un test"
+    "locale": "fr-FR",
+    "test": "Ceci est un test",
+    "taskbar": {
+        "startButton": {
+            "start": "Démarrer",
+            "hover": "Cliquez ici pour démarrer."
+        }
+    }
 }
