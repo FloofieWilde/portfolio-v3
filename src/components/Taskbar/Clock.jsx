@@ -1,4 +1,5 @@
 import TooltipComp from '@components/Shared/TooltipComp'
+import { format } from 'prettier'
 import React, { useEffect, useState } from 'react'
 
 const Clock = () => {
@@ -10,17 +11,24 @@ const Clock = () => {
         }, 1000)
         return () => clearInterval(interval)
     }, [])
+    
+    const formatTime = (time) => {
+        return time < 10 ? `0${time}` : time
+    }
 
     return (
     <>
-        <TooltipComp text="TEst">
+        <TooltipComp text={t("test")}>
             <span style={{fontSize: "9px", fontFamily: "PX"}}>
-                {Time.getHours().toString().length === 1 ? "0" + Time.getHours() : Time.getHours()}
+                {formatTime(Time.getHours())}
                 &thinsp;:&thinsp;
-                {Time.getMinutes()}</span>
+                {formatTime(Time.getMinutes())}
+            </span>
         </TooltipComp>
     </>
   )
+
+  
 }
 
 export default Clock

@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Clock from './Clock'
 
 const TrayContainer = () => {
-    // const [Date, setDate] = useState(second)
   return (
     <Tray>
         <Clock/>
