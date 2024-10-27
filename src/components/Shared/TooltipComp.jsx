@@ -6,10 +6,11 @@ import "./Tooltip.css"
 const TooltipComp = (props) => {
   return (
     <Whisper 
-        followCursor
-        placement={props.placement ?? "auto"}
-        delayOpen={750}
-        speaker={<Tooltip className='tooltip'>{props.text}</Tooltip>}>
+      followCursor
+      placement={props.placement ?? "auto"}
+      delayOpen={750}
+      speaker={<Tooltip className='tooltip'>{props.text}</Tooltip>}
+    >
         {props.children}
     </Whisper>
   )

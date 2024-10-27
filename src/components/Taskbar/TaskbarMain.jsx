@@ -8,7 +8,10 @@ const TaskbarMain = () => {
   return (
     <TaskbarContainer>
       <div>
-        <TooltipComp text={"Cliquez ici pour commencer."}>
+        <TooltipComp 
+          text={"Cliquez ici pour commencer."}
+          placement='topStart'
+        >
           <><TaskbarButton/></>
           </TooltipComp>
       </div>

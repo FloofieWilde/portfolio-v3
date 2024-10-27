@@ -6,5 +6,13 @@
             "start": "Démarrer",
             "hover": "Cliquez ici pour démarrer."
         }
+    },
+    "icons": {
+        "program": "Programme",
+        "computer": "Poste de travail",
+        "documents": "Mes Documents",
+        "ie": "Internet Explorer",
+        "outlook": "Outlook Express",
+        "trash": "Corbeille"
     }
 }

@@ -1,0 +1,38 @@
+[
+    [
+        {
+            "name": "computer",
+            "icon": "computer_explorer-2.png",
+            "focus": "computer_explorer-2-focus.png",
+            "program": "Default",
+            "url": "Default"
+        },
+        {
+            "name": "documents",
+            "icon": "directory_open_file_mydocs-5.png",
+            "program": "Default",
+            "url": "Default"
+        },
+        {
+            "name": "ie",
+            "icon": "msie1-5.png",
+            "program": "Default",
+            "url": "Default"
+        }
+    ],
+    [
+        {
+            "name": "outlook",
+            "icon": "outlook_express-4.png",
+            "program": "Default",
+            "url": "Default"
+        },
+        {
+            "name": "trash",
+            "icon": "recycle_bin_empty-0.png",
+            "icon2": "recycle_bin_full-4.png",
+            "program": "Default",
+            "url": "Default"
+        }
+    ]
+]

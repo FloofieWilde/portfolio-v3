@@ -2,17 +2,19 @@ import TooltipComp from '@components/Shared/TooltipComp'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
+// Fix the perma re-rendering of the clock
 const Clock = () => {
     const [Time, setTime] = useState(new Date())
     const { t } = useTranslation();
 
-    //TODO : Fix the memory leak (reset the tooltip is doing bs)
     useEffect(() => {
-        const interval = setInterval(() => {
-            setTime(new Date())
-        }, 1000)
-        return () => clearInterval(interval)
-    }, [Time])
+        let now = new Date()
+        while (now.getSeconds() !== 0) {
+            const interval = window.setInterval(() => {now = new Date()}, 1000)
+            return () => window.clearInterval(interval);
+        }
+        setTime(now);
+    }, [])
     
     const formatTime = (time) => {
         return time < 10 ? `0${time}` : time
