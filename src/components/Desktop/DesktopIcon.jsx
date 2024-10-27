@@ -10,7 +10,7 @@ const DesktopIcon = (props) => {
   const [Focused, setFocused] = useState(false)
   return (
     <Icon onBlur={() => {setFocused(false)}} onFocus={() => setFocused(true)} onClick={() => {/*TODO: Implement windows*/}}>
-        <img src={props.icon.icon && Focused ? require(`@icons/${props.icon.icon}`) : exe} alt={`icon ${props.icon.name}`} />
+        <img src={props.icon.icon ? require(`@icons/${props.icon.icon}`) : exe} alt={`icon ${props.icon.name}`} />
         <span>{t(`icons.${props.icon.name}`)}</span>
     </Icon>
   )
