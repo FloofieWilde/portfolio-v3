@@ -21,6 +21,7 @@ const TaskbarMain = (props) => {
         |
         {props.programs.map((program, index) => 
           <TaskbarProgram key={index}>
+            {/* eslint-disable-next-line no-undef*/}
             <img src={require(`@icons/${program.icon}`)} alt={`icon ${program.name}`} />
             <span>{t(`icons.${program.name}`)}</span>
           </TaskbarProgram>
