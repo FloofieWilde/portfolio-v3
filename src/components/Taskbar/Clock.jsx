@@ -7,6 +7,7 @@ const Clock = () => {
     const [Time, setTime] = useState(new Date())
     const { t } = useTranslation();
 
+
     useEffect(() => {
         let now = new Date()
         while (now.getSeconds() !== 0) {
@@ -14,7 +15,16 @@ const Clock = () => {
             return () => window.clearInterval(interval);
         }
         setTime(now);
+        return;
+    }, [Time])
+
+    useEffect(() => {
+        window.addEventListener("focus", onFocus);
     }, [])
+
+    const onFocus = () => {
+        setTime(new Date());
+    }
     
     const formatTime = (time) => {
         return time < 10 ? `0${time}` : time
@@ -29,8 +39,8 @@ const Clock = () => {
 
     return (
     <>
-        <TooltipComp text={date}>
-            <div style={{fontSize: "9px", fontFamily: "PX", cursor: "default"}}>
+        <TooltipComp text={date} placement={'topEnd'}>
+            <div style={{display:"block", fontSize: "9px", fontFamily: "PX", cursor: "default"}}>
                 {formatTime(Time.getHours())}
                 &thinsp;:&thinsp;
                 {formatTime(Time.getMinutes())}
