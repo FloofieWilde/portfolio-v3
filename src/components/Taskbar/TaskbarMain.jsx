@@ -1,26 +1,69 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import TaskbarButton from '@components/Taskbar/TaskbarButton'
 import TooltipComp from '@components/Shared/TooltipComp'
 import TrayContainer from './TrayContainer'
+import { t } from 'i18next'
+import TrayButton from './TrayButton'
+import TaskbarButton from './TaskbarButton'
+import Colors from 'Colors'
 
-const TaskbarMain = () => {
+const TaskbarMain = (props) => {
   return (
     <TaskbarContainer>
-      <div>
+      <TaskbarLeftMember>
         <TooltipComp 
           text={"Cliquez ici pour commencer."}
           placement='topStart'
         >
           <><TaskbarButton/></>
-          </TooltipComp>
-      </div>
+        </TooltipComp>
+        |
+        {props.programs.map((program, index) => 
+          <TaskbarProgram key={index}>
+            <img src={require(`@icons/${program.icon}`)} alt={`icon ${program.name}`} />
+            <span>{t(`icons.${program.name}`)}</span>
+          </TaskbarProgram>
+        )}
+      </TaskbarLeftMember>
       <div>
         <TrayContainer/>
       </div>
     </TaskbarContainer>
   )
 }
+
+const TaskbarProgram = styled(TrayButton)`
+  height: 22px !important;
+  width: 150px;
+  align-items: center;
+  justify-content: start;
+  line-height: 1;
+  font-weight: normal;
+  gap: 3px;
+
+  &:focus {
+    background-color: ${Colors.whiteTrayFocus};
+  }
+  
+  > img {
+    height: 16px;
+    width: 18px;
+  }
+
+  > span {
+    position: relative;
+    top: 1px;
+  }
+`
+
+const TaskbarLeftMember = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  height: inherit;
+`
 
 const TaskbarContainer = styled.div`
   height: 28px;
@@ -41,5 +84,8 @@ const TaskbarContainer = styled.div`
   align-items: center;
 `
 
+TaskbarMain.propTypes = {
+  programs: PropTypes.arrayOf(PropTypes.object).isRequired,
+}
 
 export default TaskbarMain

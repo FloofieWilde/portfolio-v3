@@ -24,7 +24,7 @@ function App() {
         }} 
       />
       <WindowsManager programs={OpenedPrograms} closeProgram={(index) => closeProgram(index)}/>
-      <TaskbarMain />
+      <TaskbarMain programs={OpenedPrograms} />
     </div>
   )
 }
