@@ -5,6 +5,7 @@ import Colors from 'Colors'
 import { t } from 'i18next'
 import Draggable from 'react-draggable'
 import Button from '@components/Shared/Button'
+import InnerWindow from './InnerWindow'
 
 const DefaultWindow = (props) => {
   const defaultPosition = 50+20*props.index;
@@ -18,23 +19,24 @@ const DefaultWindow = (props) => {
   return (
     <div>
       <Window index={props.index} position={Position}>
-          <WindowHeader className="handle">
-            <>
-              {/* eslint-disable-next-line no-undef */}
-              <img src={require(`@icons/${props.program.icon}`)} alt={`icon ${props.program.name}`} />
-              <span>{t(`icons.${props.program.name}`)}</span>
-            </>
-            <Commands>
-              <Button>?</Button>
-              <Button>?</Button>
-              <Button handler={
-                () => {
-                  props.closeSelf()
-                }
-              }>X</Button>
-            </Commands>
-          </WindowHeader>
-        </Window>
+        <WindowHeader className="handle">
+          <>
+            {/* eslint-disable-next-line no-undef */}
+            <img src={require(`@icons/${props.program.icon}`)} alt={`icon ${props.program.name}`} />
+            <span>{t(`icons.${props.program.name}`)}</span>
+          </>
+          <Commands>
+            <Button>?</Button>
+            <Button>?</Button>
+            <Button handler={
+              () => {
+                props.closeSelf()
+              }
+            }>X</Button>
+          </Commands>
+        </WindowHeader>
+        <InnerWindow program={props.program} />
+      </Window>
       <Draggable 
         handle=".handle"
         onStart={() => setIsDragged(true)}
@@ -75,9 +77,12 @@ const WindowBounds = styled.div`
   position: absolute;
   max-width: 100%;
   max-height: 100%;
-  min-width: 150px;
-  min-height: 150px;
-  width: 300px;
+  min-width: 200px;
+  min-height: 250px;
+  /* width: 450px;
+  height: 300px; */
+  width: 70vw;
+  height: 70vh;
 
   top: calc(50px + 20px*${props => props.index});
   left: calc(50px + 20px*${props => props.index});
@@ -92,6 +97,9 @@ const WindowDragEffect = styled(WindowBounds)`
 const Window = styled(WindowBounds)`
   top: ${props => props.position.y}px;
   left: ${props => props.position.x}px;
+  
+  display: flex;
+  flex-direction: column;
 
   border: 2px solid ${Colors.greyTB};
   box-shadow: ${Colors.greyShadow} 2px 2px 0px, white -1px -1px 0px;

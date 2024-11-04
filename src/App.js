@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './Fonts.css'
 import './App.css'
 import 'rsuite/dist/rsuite.min.css';
