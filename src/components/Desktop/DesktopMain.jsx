@@ -14,7 +14,7 @@ const DesktopMain = (props) => {
             <IconCol key={rowIndex}>
               {
               iconRow.map((icon, index) => (
-                <div key={index} onDoubleClick={() => { props.openProgram(icon.name)}}>
+                <div key={index} onDoubleClick={() => { props.openProgram(icon)}}>
                   <DesktopIcon 
                     key={index} 
                     icon={icon} 

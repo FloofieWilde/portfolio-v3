@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useState } from 'react'
+import React from 'react'
 import exe from '@icons/executable-0.png'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -7,9 +7,8 @@ import { t } from 'i18next'
 import Colors from 'Colors'
 
 const DesktopIcon = (props) => {
-  const [Focused, setFocused] = useState(false)
   return (
-    <Icon onBlur={() => {setFocused(false)}} onFocus={() => setFocused(true)} onClick={() => {/*TODO: Implement windows*/}}>
+    <Icon>
         <img src={props.icon.icon ? require(`@icons/${props.icon.icon}`) : exe} alt={`icon ${props.icon.name}`} />
         <span>{t(`icons.${props.icon.name}`)}</span>
     </Icon>

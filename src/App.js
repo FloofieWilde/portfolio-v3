@@ -9,18 +9,15 @@ import WindowsManager from '@components/Desktop/Windows/WindowsManager';
 
 function App() {
   const [OpenedPrograms, setOpenedPrograms] = useState([])
-  useEffect(() => {
-    console.log(OpenedPrograms)
-  }, [OpenedPrograms])
   
   return (
     <div className='App'>
-      <WindowsManager programs={OpenedPrograms} />
       <DesktopMain 
         openProgram={(program) => { 
           setOpenedPrograms([...OpenedPrograms, program])
         }} 
       />
+      <WindowsManager programs={OpenedPrograms} />
       <TaskbarMain />
     </div>
   )
