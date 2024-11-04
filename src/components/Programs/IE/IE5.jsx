@@ -1,5 +1,4 @@
 import React from 'react'
-import DefaultWindow from '../DefaultWindow'
 
 const IE5 = () => {
   return (
