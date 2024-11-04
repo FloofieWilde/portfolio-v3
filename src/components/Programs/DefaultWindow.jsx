@@ -52,11 +52,24 @@ const DefaultWindow = (props) => {
         <WindowDragEffect isDragged={IsDragged} index={props.index}>
           <WindowHeaderBounds className="handle">
           </WindowHeaderBounds>
+          <WindowResizeBounds>
+          </WindowResizeBounds>
         </WindowDragEffect>
       </Draggable>
     </div>
   )
 }
+
+const WindowResizeBounds = styled.div`
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  background-color: ${Colors.greyTB};
+  cursor: se-resize;
+  pointer-events: auto;
+`
 
 const WindowBounds = styled.div`
   position: absolute;
