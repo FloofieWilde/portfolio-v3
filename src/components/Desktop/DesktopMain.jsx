@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import "./Desktop.css"
 import styled from 'styled-components'
 import DesktopIcon from './DesktopIcon'
 import IconList from './DesktopIconList.json'
 
-const DesktopMain = () => {
+const DesktopMain = (props) => {
   return (
     <div className={"wallpaper"}>
       <IconGrid>
@@ -13,7 +14,12 @@ const DesktopMain = () => {
             <IconCol key={rowIndex}>
               {
               iconRow.map((icon, index) => (
-                <DesktopIcon key={index} icon={icon} />
+                <div key={index} onDoubleClick={() => { props.openProgram(icon.name)}}>
+                  <DesktopIcon 
+                    key={index} 
+                    icon={icon} 
+                  />
+                </div>
               ))
               }
             </IconCol>
@@ -24,7 +30,9 @@ const DesktopMain = () => {
   )
 }
 
-
+DesktopMain.propTypes = {
+  openProgram: PropTypes.func.isRequired,
+}
 
 const IconGrid = styled.div`
   display: flex;
