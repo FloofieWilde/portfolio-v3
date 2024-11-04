@@ -45,11 +45,13 @@ const TaskbarProgram = styled(TrayButton)`
 
   &:focus {
     background-color: ${Colors.whiteTrayFocus};
+    font-weight: bold;
   }
   
   > img {
     height: 16px;
     width: 18px;
+    padding-left: 2px;
   }
 
   > span {
