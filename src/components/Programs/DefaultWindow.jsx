@@ -26,6 +26,7 @@ const DefaultWindow = (props) => {
             </>
             <Commands>
               <Button>?</Button>
+              <Button>?</Button>
               <Button>X</Button>
             </Commands>
           </WindowHeader>
@@ -68,6 +69,7 @@ const WindowBounds = styled.div`
 const WindowDragEffect = styled(WindowBounds)`
   border: ${props => props.isDragged ? '4px white solid' : 'none'};
   mix-blend-mode: difference;
+  pointer-events:none;
 `
 
 const Window = styled(WindowBounds)`
@@ -78,12 +80,17 @@ const Window = styled(WindowBounds)`
   box-shadow: ${Colors.greyShadow} 2px 2px 0px, white -1px -1px 0px;
 `
 
-const WindowHeaderBounds = styled.div`
+const WindowHeaderSize = styled.div`
   height: 18px;
   display: flex;
 `
 
-const WindowHeader = styled(WindowHeaderBounds)`
+const WindowHeaderBounds = styled(WindowHeaderSize)`
+  width: calc(100% - 48px);
+  pointer-events: auto;
+`
+
+const WindowHeader = styled(WindowHeaderSize)`
   background-color: ${Colors.selectedBlue};
   color: white;
   font-weight: bold;
