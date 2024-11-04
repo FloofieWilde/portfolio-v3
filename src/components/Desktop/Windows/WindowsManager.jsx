@@ -11,13 +11,15 @@ const WindowsManager = (props) => {
               index={index} 
               key={program} 
               program={program}
+              closeSelf={() => props.closeProgram(index)}
             />)
         }
     </div>
   )
 }
 WindowsManager.propTypes = {
-  programs: PropTypes.array
+  programs: PropTypes.array,
+  closeProgram: PropTypes.func
 }
 
 export default WindowsManager

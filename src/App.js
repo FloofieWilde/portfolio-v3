@@ -10,6 +10,12 @@ import WindowsManager from '@components/Desktop/Windows/WindowsManager';
 function App() {
   const [OpenedPrograms, setOpenedPrograms] = useState([])
   
+  const closeProgram = (index) => {
+    let programs = [...OpenedPrograms]
+    programs.splice(index, 1)
+    setOpenedPrograms(programs)
+  }
+
   return (
     <div className='App'>
       <DesktopMain 
@@ -17,7 +23,7 @@ function App() {
           setOpenedPrograms([...OpenedPrograms, program])
         }} 
       />
-      <WindowsManager programs={OpenedPrograms} />
+      <WindowsManager programs={OpenedPrograms} closeProgram={(index) => closeProgram(index)}/>
       <TaskbarMain />
     </div>
   )

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Colors from 'Colors'
-import { t, use } from 'i18next'
+import { t } from 'i18next'
 import Draggable from 'react-draggable'
 import Button from '@components/Shared/Button'
 
@@ -27,7 +27,11 @@ const DefaultWindow = (props) => {
             <Commands>
               <Button>?</Button>
               <Button>?</Button>
-              <Button>X</Button>
+              <Button handler={
+                () => {
+                  props.closeSelf()
+                }
+              }>X</Button>
             </Commands>
           </WindowHeader>
         </Window>
@@ -123,6 +127,7 @@ const Commands = styled.div`
 DefaultWindow.propTypes = {
   program: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  closeSelf: PropTypes.func.isRequired,
 }
 
 export default DefaultWindow
