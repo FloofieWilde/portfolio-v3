@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Colors from 'Colors'
@@ -11,10 +11,26 @@ const DefaultWindow = (props) => {
   const defaultPosition = 50+20*props.index;
   const [Position, setPosition] = useState({ x: defaultPosition, y: defaultPosition })
   const [IsDragged, setIsDragged] = useState(false)
+  const [IsMaximized, setIsMaximized] = useState(false)
+
+  const reduceOrMaximize = () => {
+    setIsMaximized(!IsMaximized)
+  }
 
   return (
     <div>
-      <Window index={props.index} position={Position}>
+      <Window 
+        style={IsMaximized ? {
+          width: '100vw',
+          height: 'calc(100vh - 28px)',
+          top: 0,
+          left: 0,
+          boxSizing: 'border-box'
+          } : {}
+        } 
+        index={props.index} 
+        position={Position}
+      >
         <WindowHeader className="handle">
           <>
             {/* eslint-disable-next-line no-undef */}
@@ -23,7 +39,12 @@ const DefaultWindow = (props) => {
           </>
           <Commands>
             <Button>?</Button>
-            <Button>?</Button>
+            <Button handler={
+              () => {
+                reduceOrMaximize()
+              }
+            }
+            >?</Button>
             <Button handler={
               () => {
                 props.closeSelf()
@@ -33,13 +54,11 @@ const DefaultWindow = (props) => {
         </WindowHeader>
         <InnerWindow program={props.program} />
       </Window>
-      <Draggable 
+      <Draggable
+        disabled={IsMaximized}
         handle=".handle"
         onStart={() => setIsDragged(true)}
         onStop={(event, data) => {
-          console.log("Position: " + JSON.stringify(Position));
-          console.log("Data: " + data.lastX + " " + data.lastY);
-
           setPosition({
             x: data.lastX + defaultPosition,
             y: data.lastY + defaultPosition

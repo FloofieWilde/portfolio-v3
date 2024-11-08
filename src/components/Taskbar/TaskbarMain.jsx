@@ -7,6 +7,7 @@ import { t } from 'i18next'
 import TrayButton from './TrayButton'
 import TaskbarButton from './TaskbarButton'
 import Colors from 'Colors'
+import Separator from '@components/Shared/Separator'
 
 const TaskbarMain = (props) => {
   return (
@@ -18,7 +19,7 @@ const TaskbarMain = (props) => {
         >
           <><TaskbarButton/></>
         </TooltipComp>
-        |
+        <Separator />
         {props.programs.map((program, index) => 
           <TaskbarProgram key={index}>
             {/* eslint-disable-next-line no-undef*/}

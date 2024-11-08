@@ -6,7 +6,8 @@ const Colors = {
     greyShadowLighter: "#a2a2a7",
     selectedBlue: "#0000aa",
     greyButton: "#c2c6ca",
-    whiteTrayFocus: "#dbd8d8"
+    whiteTrayFocus: "#dbd8d8", 
+    greyBorders: "#909498"
 }
 
 export default Colors

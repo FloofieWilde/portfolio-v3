@@ -14,11 +14,12 @@ const InnerWindow = (props) => {
 const WinViewport = styled.div`
     width: 100%;
     height: 100%;
-    /* overflow: auto; */
     background-color: white;
     flex: 1 1 auto;
     box-sizing: border-box;
     padding: 0px;
+    display: flex;
+    flex-direction: column;
 `
 
 InnerWindow.propTypes = {
