@@ -12,10 +12,6 @@ const DefaultWindow = (props) => {
   const [Position, setPosition] = useState({ x: defaultPosition, y: defaultPosition })
   const [IsDragged, setIsDragged] = useState(false)
 
-  useEffect(() => {
-    console.log("Position: " + JSON.stringify(Position));
-  }, [Position])
-
   return (
     <div>
       <Window index={props.index} position={Position}>

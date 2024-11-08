@@ -1,6 +1,7 @@
 import TooltipComp from '@components/Shared/TooltipComp'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { set } from 'rsuite/esm/internals/utils/date'
 
 // Fix the perma re-rendering of the clock
 const Clock = () => {
@@ -10,21 +11,14 @@ const Clock = () => {
 
     useEffect(() => {
         let now = new Date()
-        while (now.getSeconds() !== 0) {
-            const interval = window.setInterval(() => {now = new Date()}, 1000)
-            return () => window.clearInterval(interval);
-        }
-        setTime(now);
-        return;
-    }, [Time])
-
-    useEffect(() => {
-        window.addEventListener("focus", onFocus);
+            const interval = window.setInterval(() => {
+                now = new Date()
+            if (now.getMinutes() !== Time.getMinutes()) {
+                setTime(now);
+                return () => window.clearInterval(interval);
+            }
+        }, 1000)
     }, [])
-
-    const onFocus = () => {
-        setTime(new Date());
-    }
     
     const formatTime = (time) => {
         return time < 10 ? `0${time}` : time
